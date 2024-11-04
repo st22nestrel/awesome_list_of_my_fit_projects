@@ -1,0 +1,20 @@
+Tento súbor obsahuje iba priklady spustenia jednotlivých testov v zložke test.
+1. 
+./flp22-log < example.in
+example output is in 'example.out'
+
+2. 
+./flp22-log < example2.in
+example output is in 'example2.out'
+
+3. 
+./flp22-log < example3.in
+example output is in 'example3.out'
+
+4. 
+./flp22-log < example4.in
+example output is in 'example4.out'
+
+5. 
+./flp22-log < example_oriented.in
+example output is in 'example_oriented.out'

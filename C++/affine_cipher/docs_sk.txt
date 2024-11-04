@@ -1,0 +1,11 @@
+KRY projekt 1 - Afinitní šifra
+Vypracoval: Timotej Ponek, xponek00@stud.fit.vutbr.cz
+
+V dokumentácií je možné preskočiť sekciu 'Prvé myšlienky', sú v nej popísané
+predošlé mnou skúšané riešenia, ktoré viedli k aktuálnemu riešeniu. Aktuálne 
+riešenie je popísané v sekcii 'Použité riešenie'.
+
+Poznámky:
+- pre frekvenčnú analýzu program neprepočítava počet výskytov bigramov, trigramov,
+  a znakov nafrekvenciu, pretože to nie je potrebné pre účel dešifrovania, stačí 
+  iba aby bol výskyt vzostupne zoradený

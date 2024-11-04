@@ -1,0 +1,14 @@
+A-B B-C C-D D-E E-F F-G G-H H-I I-J J-K K-L L-M 
+A-B B-C C-D D-E E-F F-G G-H H-I I-J J-K K-L M-A 
+A-B B-C C-D D-E E-F F-G G-H H-I I-J J-K L-M M-A 
+A-B B-C C-D D-E E-F F-G G-H H-I I-J K-L L-M M-A 
+A-B B-C C-D D-E E-F F-G G-H H-I J-K K-L L-M M-A 
+A-B B-C C-D D-E E-F F-G G-H I-J J-K K-L L-M M-A 
+A-B B-C C-D D-E E-F F-G H-I I-J J-K K-L L-M M-A 
+A-B B-C C-D D-E E-F G-H H-I I-J J-K K-L L-M M-A 
+A-B B-C C-D D-E F-G G-H H-I I-J J-K K-L L-M M-A 
+A-B B-C C-D E-F F-G G-H H-I I-J J-K K-L L-M M-A 
+A-B B-C D-E E-F F-G G-H H-I I-J J-K K-L L-M M-A 
+A-B C-D D-E E-F F-G G-H H-I I-J J-K K-L L-M M-A 
+B-C C-D D-E E-F F-G G-H H-I I-J J-K K-L L-M M-A 
+

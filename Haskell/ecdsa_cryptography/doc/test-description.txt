@@ -1,0 +1,29 @@
+Tento súbor obsahuje iba priklady spustenia jednotlivých testov v zložke test.
+
+Testy s príponou wiki sú vytvorené na základe ECDSA príkladov z wikipedie
+https://cs.wikipedia.org/wiki/Protokol_digit%C3%A1ln%C3%ADho_podpisu_s_vyu%C5%BEit%C3%ADm_eliptick%C3%BDch_k%C5%99ivek
+1. 
+./flp22-fun -k test-k-wiki.in
+example output is in 'test-k-wiki.out'
+
+2. 
+./flp22-fun -s test-s-wiki.in
+example output is in 'test-s-wiki.out'
+
+3. 
+./flp22-fun -v test-v-wiki.in
+expected output: True
+
+-----------------------------
+
+1. 
+./flp22-fun -k test-k.in
+example output is in 'test-k.out'
+
+2. 
+./flp22-fun -s test-s.in
+example output is in 'test-s.out'
+
+3. 
+./flp22-fun -v test-v.in
+expected output: True
