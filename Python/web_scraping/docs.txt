@@ -1,0 +1,25 @@
+Zvolený e-shop:
+https://www.kozmetikalacno.sk/
+Kozmetika lacno
+
+Doba behu skriptu run.sh by mala byť +-2min (na merlinovi)
+
+tsvDownloader.py (ktorý sťahuje cenu a názov produktu z url) funguje mimo skriptu run.sh takto:
+    - ak je zadaný vstupný súbor skrz argument '--file <subor>', tak zo súboru zadaného v argumente
+    <subor> sú načítané jednotlivé url produktov
+    - inak sa url získavajú zo stdin (v skripte run.sh je prvých 20 url z url.txt preposlaných na 
+    stdin skrz pipe)
+
+run.sh:
+    - stiahne pomocou skriptu urlDownloader.py url do súboru 'urls_demo.txt'
+    - následne pomocou skriptu tsvDownloader.py stiahne ceny a názvy produktov pre prvých 20 url
+    v súbore 'urls_demo.txt' a uloží ich do súboru 'data_demo.tsv'
+
+archív obsahuje:
+ukážkový výstup skriptu urlDownloader.py - urls.txt
+ukážkový výstup skriptu tsvDownloader.py - data.tsv
+skipty:
+    build.sh
+    run.sh
+    urlDownloader.py
+    tsvDownloader.py

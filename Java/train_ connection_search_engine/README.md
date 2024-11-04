@@ -7,7 +7,7 @@ This project provides functionality to download train connection data in xml for
 ### School subject and project
 -   *subject*: **UPA - Data Storage and Preparation**
 
--   *project:* Project, part 1: storing large data in NoSQL databases (Projekt, 1. část: ukládání rozsáhlých dat v NoSQL databázích)
+-   *project*: Project, part 1: storing large data in NoSQL databases (Projekt, 1. část: ukládání rozsáhlých dat v NoSQL databázích)
 
 ## Usage
 
@@ -39,14 +39,14 @@ Project was created in 2022 and [portal.cisjr](https://portal.cisjr.cz/pub/draha
 App TUI is in slovak language, here is a litte translation of its main prompt:
 
 - SK:
-    ```
+    ```plaintext
     Pre stiahnutie jízdních řádů a na ich nahranie do databázy zadajte '1'
     Pre vyhľadávanie spojov zadajte '2'
     Pre ukončenie aplikácie zadajte '3'
     Svoj výber potvrďte stlačením tlačidla 'Enter': 
     ```
 - ENG:
-    ```
+    ```plaintext
     To download timetables and upload them to the database, enter '1'
     To search for connections enter '2'
     To exit the application, enter '3'
