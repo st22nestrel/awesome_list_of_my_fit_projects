@@ -1,0 +1,3 @@
+[submodule "Java/warehouse_management_system/submodule"]
+	path = Java/warehouse_management_system/submodule
+	url = https://github.com/timom26/IJA-basic-warehouse-management.git

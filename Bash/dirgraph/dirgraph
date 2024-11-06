@@ -1,0 +1,253 @@
+#!/bin/sh
+export POSIXLY_CORRECT=yes
+# @autor: Timotej Ponek, xponek00
+
+export a1=0
+export a2=0
+export a3=0
+export a4=0
+export a5=0
+export a6=0
+export a7=0
+export a8=0
+export a9=0
+normalize=0
+export FILE_ERE
+export MAXval=0
+argsnum=0
+
+najvacsia(){
+  if [ $MAXval -lt "$1" ]
+    then
+      MAXval=$1
+  fi
+}
+
+# jednotlive kategorie velkosti suborov od su oznacene od a1-a9
+najdi(){
+if [ "$FILE_ERE" ]
+  then
+  a1=$(find "$DIR" -type f -size -100c 2>/dev/null | grep -v "$FILE_ERE" | wc -l | tr -d "[ :blank: ]")
+    
+	a2=$(find "$DIR" -type f -size -1024c 2>/dev/null | grep -v "$FILE_ERE" | wc -l | tr -d "[ :blank: ]")
+  
+	a3=$(find "$DIR" -type f -size -10240c 2>/dev/null | grep -v "$FILE_ERE" |wc -l | tr -d "[ :blank: ]")
+	
+  a4=$(find "$DIR" -type f -size -102400c 2>/dev/null | grep -v "$FILE_ERE" |wc -l | tr -d "[ :blank: ]")
+	
+  a5=$(find "$DIR" -type f -size -1048576c 2>/dev/null | grep -v "$FILE_ERE" |wc -l | tr -d "[ :blank: ]")
+	
+  a6=$(find "$DIR" -type f -size -10485760c 2>/dev/null | grep -v "$FILE_ERE" | wc -l | tr -d "[ :blank: ]")
+	
+  a7=$(find "$DIR" -type f -size -104857600c 2>/dev/null | grep -v "$FILE_ERE" | wc -l | tr -d "[ :blank: ]")
+	
+  a8=$(find "$DIR" -type f -size -1073741824c 2>/dev/null | grep -v "$FILE_ERE" | wc -l | tr -d "[ :blank: ]")
+
+  a9=$(find "$DIR" -type f -size +1073741824c  2>/dev/null | grep -v "$FILE_ERE" | wc -l | tr -d "[ :blank: ]")
+
+else
+  a1=$(find "$DIR" -type f -size -100c 2>/dev/null | wc -l | tr -d "[ :blank: ]")
+    
+  a2=$(find "$DIR" -type f -size -1024c 2>/dev/null | wc -l | tr -d "[ :blank: ]")
+  
+	a3=$(find "$DIR" -type f -size -10240c 2>/dev/null | wc -l | tr -d "[ :blank: ]")
+	
+  a4=$(find "$DIR" -type f -size -102400c 2>/dev/null | wc -l | tr -d "[ :blank: ]")
+	
+  a5=$(find "$DIR" -type f -size -1048576c 2>/dev/null | wc -l | tr -d "[ :blank: ]")
+	
+  a6=$(find "$DIR" -type f -size -10485760c 2>/dev/null | wc -l | tr -d "[ :blank: ]")
+	
+  a7=$(find "$DIR" -type f -size -104857600c 2>/dev/null | wc -l | tr -d "[ :blank: ]")
+	
+  a8=$(find "$DIR" -type f -size -1073741824c 2>/dev/null | wc -l | tr -d "[ :blank: ]")
+
+  a9=$(find "$DIR" -type f -size +1073741824c 2>/dev/null | wc -l | tr -d "[ :blank: ]")
+fi
+
+  a8=$((a8-a7))
+  a7=$((a7-a6))
+  a6=$((a6-a5))
+  a5=$((a5-a4))
+  a4=$((a4-a3))
+  a3=$((a3-a2))
+  a2=$((a2-a1))
+
+  najvacsia "$a1"
+  najvacsia "$a2"
+  najvacsia "$a3"
+  najvacsia "$a4"
+  najvacsia "$a5"
+  najvacsia "$a6"
+  najvacsia "$a7"
+  najvacsia "$a8"
+  najvacsia "$a9"
+  
+}
+
+
+vypis(){
+
+  if [ $normalize -eq 0 ]
+    then
+    printf "  <100 B  : "
+    : $((i=0))
+    while [ $(( i < a1 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+    printf "\n  <1 KiB  : "
+    : $((i=0))
+    while [ $(( i < a2 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+    printf "\n  <10 KiB : "
+    : $((i=0))
+    while [ $(( i < a3 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+    printf "\n  <100 KiB: "
+    : $((i=0))
+    while [ $(( i < a4 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+    printf "\n  <1 MiB  : "
+    : $((i=0))
+    while [ $(( i < a5 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+    printf "\n  <10 MiB : "
+    : $((i=0))
+    while [ $(( i < a6 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+    printf "\n  <100 MiB: "
+    : $((i=0))
+    while [ $(( i < a7 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+    printf "\n  <1 GiB  : "
+    : $((i=0))
+    while [ $(( i < a8 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+    printf "\n  >=1 GiB : "
+    : $((i=0))
+    while [ $(( i < a9 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+    printf "\n"
+  
+  #normalizacia
+  else
+  b1=$(((a1*(sirka-13))/MAXval))
+    printf "  <100 B  : "
+    : $((i=0))
+    while [ $(( i < b1 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+  b2=$(((a2*(sirka-13))/MAXval))
+    printf "\n  <1 KiB  : "
+    : $((i=0))
+    while [ $(( i < b2 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+  b3=$(((a3 * (sirka-13))/MAXval))
+    printf "\n  <10 KiB : "
+    : $((i=0))
+    while [ $(( i < b3 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+  b4=$(((a4*(sirka-13))/MAXval))
+    printf "\n  <100 KiB: "
+    : $((i=0))
+    while [ $(( i < b4 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+  b5=$(((a5*(sirka-13))/MAXval))
+    printf "\n  <1 MiB  : "
+    : $((i=0))
+    while [ $(( i < b5 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+  b6=$(((a6*(sirka-13))/MAXval))
+    printf "\n  <10 MiB : "
+    : $((i=0))
+    while [ $(( i < b6 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+  b7=$(((a7*(sirka-13))/MAXval))
+    printf "\n  <100 MiB: "
+    : $((i=0))
+    while [ $(( i < b7 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+  b8=$(((a8*(sirka-13))/MAXval))
+    printf "\n  <1 GiB  : "
+    : $((i=0))
+    while [ $(( i < b8 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+
+  b9=$(((a9*(sirka-13))/MAXval))
+    printf "\n  >=1 GiB : "
+    : $((i=0))
+    while [ $(( i < b9 )) -ne 0 ]; do printf "#"; : $((i=i+1)); done
+    printf "\n"
+  fi
+
+}
+ 
+##########################################################################
+
+while getopts 'i:n?' c
+do
+  case $c in
+    i) FILE_ERE=$2 
+        argsnum=$((argsnum+2));;
+    n) normalize=1 
+        argsnum=$((argsnum+1));;
+    *) ;;
+  esac
+done
+
+# zadanie adresara kt. ma byt prehladavany
+if [ $# -gt $argsnum ]
+  then
+	  eval "DIR=\${$#}"
+  else
+    DIR=$PWD
+fi
+
+if [ $FILE_ERE ]
+  then
+  case "$DIR" in
+      *$FILE_ERE*) 1>&2 echo "Error: FILE_ERE pokryva prehladavany adresar" 
+                   exit 1;;
+      *) true
+esac
+fi
+
+# pritomnost terminalu
+if [ -t 1 ] 
+  then
+    sirka=$(tput cols)
+else
+  sirka=79
+fi
+
+if [ "$DIR" ] 
+then
+    echo "Root directory: $DIR"
+    if [ "$FILE_ERE" ]
+      then
+      printf "Directories: " ;find "$DIR" -type d | grep -v "$FILE_ERE" | wc -l | tr -d "[ :blank: ]" #todo
+
+      printf "All files: " ;find "$DIR" -type f | grep -v "$FILE_ERE" | wc -l | tr -d "[ :blank: ]"
+
+    else
+    printf "Directories: " ;find "$DIR" -type d -exec echo \; | wc -l | tr -d "[ :blank: ]" #todo
+
+    printf "All files: " ;find "$DIR" -type f -exec echo \; | wc -l | tr -d "[ :blank: ]"
+
+    fi
+    echo "File size histogram: "
+else 
+    echo "Root directory: $PWD"
+    if [ "$FILE_ERE" ]
+      then
+      printf "Directories: " ;find . -type d | grep -v "$FILE_ERE" | wc -l | tr -d "[ :blank: ]" #todo
+
+      printf "All files: " ;find . -type f | grep -v "$FILE_ERE" | wc -l | tr -d "[ :blank: ]"
+
+    else
+    printf "Directories: " ;find . -type d -exec echo \; | wc -l | tr -d "[ :blank: ]" #todo
+
+    printf "All files: " ;find . -type f -exec echo \; | wc -l | tr -d "[ :blank: ]"
+    fi
+    echo "File size histogram: "
+fi
+
+najdi
+
+vypis
