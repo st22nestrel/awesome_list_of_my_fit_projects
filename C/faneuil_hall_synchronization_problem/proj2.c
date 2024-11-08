@@ -45,6 +45,10 @@ sem_t *wait_log = NULL;
  */
 int mmap_start(){
     fp = fopen("proj2.out", "w");
+    if(fp == NULL){
+        fprintf(stderr, "Chyba pri otvarani suboru\n");
+    }
+
     MMAP(ne);
     if (errno != 0) return 2;
 
@@ -354,7 +358,6 @@ int main(int argc, char* argv[]) {
                     if (returnStatus == 1){
                         fprintf(stderr, "Detsky proces skoncil s errorom.\n");   
                     }
-                    fclose(fp);
                 }   
     }
     clean_map();
