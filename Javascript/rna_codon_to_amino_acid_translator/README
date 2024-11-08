@@ -1,0 +1,50 @@
+# RNA Codon to Amino Acid Translator
+
+## About
+
+This project implements a genetic code translation system that converts RNA codons into their corresponding amino acids. It provides functionality to:
+
+- Translate RNA sequences into amino acids
+- Handle all standard amino acid codons
+- Process stop codons (UGA, UAA, UAG)
+- Validate input sequences
+
+
+Features:
+- Supports all 20 standard amino acids
+- Implements inheritance-based amino acid objects
+- Provides generator-based translation
+- Includes error handling for invalid codons
+- Returns amino acid objects with proper prototypal inheritance
+
+### School subject and project
+
+- *subject*: **WAP - Internet Applications**
+- *project*: Project 1
+
+## Usage
+
+### Prerequisites
+
+- Node.js (v18.18.0 was used during development)
+- JSDoc (for documentation generation)
+
+### How to run
+
+1. Install dependencies
+```bash
+./test.sh --install
+```
+
+2. Run tests
+```bash
+./test.sh
+```
+
+3. Generate documentation
+```
+./doc.sh
+```
+
+> [!NOTE] 
+> Documentation generation requires JSDoc. If not installed, you can install it globally using: `npm install -g jsdoc`.
